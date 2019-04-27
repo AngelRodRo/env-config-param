@@ -11,5 +11,11 @@
     "url": "https://github.com/AngelRodRo/env-config-param"
   },
   "author": "aleangrodriguez123@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "config",
+    "environment",
+    "configuration",
+    "params"
+  ]
 }
