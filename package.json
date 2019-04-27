@@ -1,0 +1,11 @@
+{
+  "name": "env-config-params",
+  "version": "0.0.1",
+  "description": "A little helper for select config file according to NODE_ENV environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aleangrodriguez123@gmail.com",
+  "license": "MIT"
+}
