@@ -17,7 +17,8 @@ const getConfig = (configPath, envConfig) => {
     }
     return config;
 }
-const startConfig = ({customConfigFolder = "", dbURI = false}) => {
+const startConfig = (configParams = {}) => {
+    const {customConfigFolder = "", dbURI = false} = configParams;
     const currentProjectPath = process.cwd();
     const configFolder = customConfigFolder || "config";
     const configPath = `${currentProjectPath}/${configFolder}`;
