@@ -11,10 +11,13 @@ const getURI = ({ host, port, name, user = "", password = "" }) => {
 
 const getConfig = (configPath, envConfig) => {
     const filePathNoExt = `${configPath}/${envConfig}`;
-    let config = require(`${filePathNoExt}.json`);
-    if (!config) {
+    let config;
+    try {
+        config = require(`${filePathNoExt}.json`);
+    } catch (error) {
         config = require(`${filePathNoExt}.js`);
     }
+    
     return config;
 }
 const startConfig = (configParams = {}) => {
@@ -25,10 +28,13 @@ const startConfig = (configParams = {}) => {
     const {NODE_ENV = "local"} = processEnv || process.env; 
     const envConfig = NODE_ENV === "dev" ? "development" : NODE_ENV;
     const config = getConfig(configPath, envConfig);
-    if (dbURI) { 
-        config.dbURI = getURI(config.db);
+    if (config) {
+        if (dbURI) { 
+            config.dbURI = getURI(config.db);
+        }
+        return config;
     }
-    return config;
+    throw "No config file found!";
 }
 
 module.exports = startConfig;
