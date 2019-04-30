@@ -1,6 +1,6 @@
 {
   "name": "env-config-params",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A little helper for select config file according to NODE_ENV environment",
   "main": "index.js",
   "scripts": {
