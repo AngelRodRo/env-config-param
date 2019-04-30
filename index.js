@@ -18,11 +18,11 @@ const getConfig = (configPath, envConfig) => {
     return config;
 }
 const startConfig = (configParams = {}) => {
-    const {customConfigFolder = "", dbURI = false} = configParams;
+    const {customConfigFolder = "", dbURI = false, processEnv = ""} = configParams;
     const currentProjectPath = process.cwd();
     const configFolder = customConfigFolder || "config";
     const configPath = `${currentProjectPath}/${configFolder}`;
-    const {NODE_ENV = "local"} = process.env; 
+    const {NODE_ENV = "local"} = processEnv || process.env; 
     const envConfig = NODE_ENV === "dev" ? "development" : NODE_ENV;
     const config = getConfig(configPath, envConfig);
     if (dbURI) { 
